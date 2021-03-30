@@ -1,0 +1,75 @@
+과제명 : get_next_line
+제출파일 : get_next_line.c get_next_line.h
+허용함수 : read, free, malloc
+--------------------------------------------------------------------------------
+
+file discriptor 0(표준입력)에서 한 줄을 읽어와 매개변수"line"에 저장하는 함수를 만들어라.
+
+함수의 프로토타입은 다음과 같다 : int get_next_line(char **line);
+
+함수는 메모리누수를 발생시키지 않아야 한다.
+
+"라인을 읽어왔다"는 것은 개행('\n')또는 파일의 끝(EOF)으로 끝나는 n개의 문자(0개포함)를 읽어왔다는 뜻이다.
+
+매개변수 "line"에 저장될 문자열은 '\n'을 포함하지 않는다.
+
+매개변수 "line"은 읽어온 한 줄을 저장할 포인터 주소이다.
+
+반환값은 라인이 읽어졌냐에 따라 1, 0 또는 -1이 될 수 있다.
+
+한 줄을 읽었다면 1, 마지막 줄을 읽었다면 0, 에러가 발생했다면 -1을 반환한다.
+
+파일의 끝에 도달했을 때, 현재 버퍼에 있는 값을 "line"에 저장해야한다. 버퍼가 비어있다면 빈 문자열을 저장한다.
+
+파일의 끝에 도달했을 때, 마지막 버퍼를 제외한 모든 메모리는 해제되어야 한다.
+
+"line"에 저장한 것도 해제할 수 있어야 한다.
+
+get_next_line은 반복문에서 호출된다. 따라서 한 줄의 길이에 상관없이 fd안의 텍스트가 끝날 때 까지 읽어올 수 있다.
+
+파일, 표준출력, 리디렉션 등 으로부터 읽어올 때도 함수가 잘 작동하는지 확인해라.
+
+두 번의 get_next_line호출 사이에 다른 함수를 호출해도 fd에서 수행되지 않는다.
+
+마지막으로 이진 파일에서 읽어올 때 get_next_line이 정의되지 않은 행동을 보일 수 있다는 점을 고려해야한다.
+
+get_next_line을 테스트해보기 위해 test.sh를 사용해야한다.
+
+
+Assignment name  : get_next_line
+Expected files   : get_next_line.c get_next_line.h
+Allowed functions: read, free, malloc
+--------------------------------------------------------------------------------
+
+Write a function will store, in the parameter "line", a line that has been read from the file descriptor 0.
+
+Your function must be prototyped as follows: int get_next_line(char **line);
+
+Your function should be memory leak free.
+
+What we call a "line that has been read" is a succession of 0 to n characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF).
+
+The string stored in the parameter "line" should not contained any '\n'.
+
+The parameter is the address of a pointer to a character that will be used to store the line read.
+
+The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed (meaning read has returned 0), or if an error has happened respectively.
+
+When you've reached the End Of File, you must store the current buffer in "line". If the buffer is empty you must store an empty string in "line".
+
+When you've reached the End Of File, your function should keep 0 memory allocated with malloc except the last buffer that you should have stored in "line".
+
+What you've stored in "line" should be free-able.
+
+Calling your function get_next_line in a loop will therefore allow you to read the text available on a file descriptor one line at a time until the end of the text, no matter the size of either the text or one of its lines.
+
+Make sure that your function behaves well when it reads from a file, from the standard output, from a redirection etc.
+
+No call to another function will be done on the file descriptor between 2 calls of get_next_line.
+
+Finally we consider that get_next_line has an undefined behavior when reading from a binary file.
+
+You should use the test.sh to help you test your get_next_line.
+
+
+
