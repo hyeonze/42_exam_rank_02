@@ -1,4 +1,4 @@
-과제명 : get_next_line
+과제명 : get_next_line 
 제출파일 : get_next_line.c get_next_line.h
 허용함수 : read, free, malloc
 --------------------------------------------------------------------------------
